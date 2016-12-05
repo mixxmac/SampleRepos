@@ -1,16 +1,27 @@
-
+import * as index from './index';
 import * as mocha from 'mocha';
-import * as chai from 'chai';
+import {assert} from 'chai';
 
 describe('it', () => {
     it('add', () => {
-        chai.assert.equal(1, 1);
+        assert.equal(1, 1);
 
     });
 
-    it('sub', () => {
-        chai.assert.equal(1, 2);
+    it('db test', async () => {
+        const sequelize = await index.init();
 
+        const Team = sequelize.model<index.Team, index.TeamAttr>('team');
+
+        var t = await Team.find({
+            where: {id: 1}
+        });
+        assert.isNotNull(t);
+        t = <index.Team>t;
+
+        assert.equal(t.name, 'Reds');
     });
+
+    
 });
 

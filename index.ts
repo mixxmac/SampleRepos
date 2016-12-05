@@ -3,12 +3,10 @@ import 'source-map-support/register';
 import * as Sequelize from 'sequelize';
 
 
-
-async function main() {
+export async function init() {
 
     // mysql.server start
-
-    const sequelize = new Sequelize(`mysql://root@localhost/ext_sequelize`, {
+    const sequelize = new Sequelize(`mysql://root:rootPass0@localhost/ext_sequelize`, {
         define: {
             freezeTableName: true,
             timestamps: false,
@@ -82,30 +80,29 @@ async function main() {
     console.log(res);
     console.log("Fin!!!");
 
+    return sequelize;
 }
 
-main();
-
-interface UserAttr {
+export interface UserAttr {
     id?: number;
     username: string;
     age?: number
 }
 
-interface User {
+export interface User {
     id: number;
     username: string;
     birthday: string;
     age: number;
 }
 
-interface TeamAttr {
+export interface TeamAttr {
     id?: number;
     name: string;
     owner: number;
 }
 
-interface Team {
+export interface Team {
     id: number;
     name: string;
     owner: User;
