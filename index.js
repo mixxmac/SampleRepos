@@ -12,7 +12,7 @@ const Sequelize = require('sequelize');
 function init() {
     return __awaiter(this, void 0, void 0, function* () {
         // mysql.server start
-        const sequelize = new Sequelize(`mysql://root:rootPass0@localhost/ext_sequelize`, {
+        const sequelize = new Sequelize(`mysql://ubuntu@localhost/circle_test`, {
             define: {
                 freezeTableName: true,
                 timestamps: false,

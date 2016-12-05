@@ -6,7 +6,7 @@ import * as Sequelize from 'sequelize';
 export async function init() {
 
     // mysql.server start
-    const sequelize = new Sequelize(`mysql://root:rootPass0@localhost/ext_sequelize`, {
+    const sequelize = new Sequelize(`mysql://ubuntu@localhost/circle_test`, {
         define: {
             freezeTableName: true,
             timestamps: false,

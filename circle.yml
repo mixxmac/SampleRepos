@@ -1,0 +1,10 @@
+machine:
+    timezone: Asia/Tokyo
+    hosts:   #/etc/hostsを書き換える
+        dev.hogehoge.com: 127.0.0.1
+
+    environment:
+        DATABASE_URL: mysql://geho:@127.0.0.1:3306/hoge
+
+    services:
+        - cassandra
