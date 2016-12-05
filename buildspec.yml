@@ -3,6 +3,9 @@ version: 0.1
 phases:
   install:
     commands:
+      - sudo apt-get install mysql-server
+      - mysql --version
+      - mysqladmin -u root password rootPass0
       - npm install
   pre_build:
     commands:
