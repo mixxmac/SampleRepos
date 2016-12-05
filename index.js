@@ -59,21 +59,20 @@ function init() {
         });
         const teams = yield Team.bulkCreate([
             {
-                id: 1,
                 name: 'Reds',
                 owner: 1
             }, {
-                //     id: 2,
                 name: 'Blues',
                 owner: 2
             }, {
-                //   id: 3,
                 name: 'Greens',
                 owner: 3
             }, {
-                // id: 4,
                 name: 'Brown',
                 owner: 4
+            }, {
+                name: 'Black',
+                owner: 5
             }
         ]);
         console.log("Fin!!!");
