@@ -9,10 +9,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 require('source-map-support/register');
 const Sequelize = require('sequelize');
+const DB_URL = process.env.DATABASE_URL || `mysql://ubuntu@localhost/circle_test`;
 function init() {
     return __awaiter(this, void 0, void 0, function* () {
         // mysql.server start
-        const sequelize = new Sequelize(`mysql://ubuntu@localhost/circle_test`, {
+        const sequelize = new Sequelize(DB_URL, {
             define: {
                 freezeTableName: true,
                 timestamps: false,
@@ -46,8 +47,6 @@ function init() {
                 type: Sequelize.INTEGER
             }
         });
-        // force=trueだとDrop table
-        //    await User.sync({ force: true });
         yield sequelize.sync({
             force: true
         });
@@ -58,7 +57,7 @@ function init() {
             username: 'bob',
             age: 123,
         });
-        const t = yield Team.bulkCreate([
+        const teams = yield Team.bulkCreate([
             {
                 id: 1,
                 name: 'Reds',
@@ -77,7 +76,6 @@ function init() {
                 owner: 4
             }
         ]);
-        console.log(res);
         console.log("Fin!!!");
         return sequelize;
     });

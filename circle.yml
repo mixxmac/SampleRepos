@@ -4,7 +4,7 @@ machine:
         dev.hogehoge.com: 127.0.0.1
 
     environment:
-        DATABASE_URL: mysql://geho:@127.0.0.1:3306/hoge
+        DATABASE_URL: mysql://ubuntu@localhost/circle_test
 
     services:
         - cassandra

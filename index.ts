@@ -2,11 +2,12 @@ import 'source-map-support/register';
 
 import * as Sequelize from 'sequelize';
 
+const DB_URL = process.env.DATABASE_URL || `mysql://ubuntu@localhost/circle_test`;
 
 export async function init() {
 
     // mysql.server start
-    const sequelize = new Sequelize(`mysql://ubuntu@localhost/circle_test`, {
+    const sequelize = new Sequelize(DB_URL, {
         define: {
             freezeTableName: true,
             timestamps: false,
@@ -43,8 +44,6 @@ export async function init() {
         }
     });
 
-    // force=trueだとDrop table
-    //    await User.sync({ force: true });
     await sequelize.sync({
         force: true
     });
@@ -57,7 +56,7 @@ export async function init() {
         username: 'bob',
         age: 123,
     });
-    const t = await Team.bulkCreate([
+    const teams = await Team.bulkCreate([
         {
             id: 1,
             name: 'Reds',
@@ -77,7 +76,6 @@ export async function init() {
         }
     ]);
 
-    console.log(res);
     console.log("Fin!!!");
 
     return sequelize;

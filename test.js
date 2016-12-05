@@ -10,18 +10,27 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 const index = require('./index');
 const chai_1 = require('chai');
 describe('it', () => {
-    it('add', () => {
+    it('sample', () => {
         chai_1.assert.equal(1, 1);
     });
-    it('db test', () => __awaiter(this, void 0, void 0, function* () {
+    it('get team name', () => __awaiter(this, void 0, void 0, function* () {
         const sequelize = yield index.init();
         const Team = sequelize.model('team');
         var t = yield Team.find({
             where: { id: 1 }
         });
         chai_1.assert.isNotNull(t);
-        t = t;
+        if (t == null) {
+            chai_1.assert.fail();
+            return;
+        }
         chai_1.assert.equal(t.name, 'Reds');
+    }));
+    it('get team count', () => __awaiter(this, void 0, void 0, function* () {
+        const sequelize = yield index.init();
+        const Team = sequelize.model('team');
+        var teams = yield Team.findAll();
+        chai_1.assert.equal(teams.length, 4);
     }));
 });
 //# sourceMappingURL=test.js.map

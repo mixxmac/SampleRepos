@@ -3,12 +3,11 @@ import * as mocha from 'mocha';
 import {assert} from 'chai';
 
 describe('it', () => {
-    it('add', () => {
+    it('sample', () => {
         assert.equal(1, 1);
-
     });
 
-    it('db test', async () => {
+    it('get team name', async () => {
         const sequelize = await index.init();
 
         const Team = sequelize.model<index.Team, index.TeamAttr>('team');
@@ -17,11 +16,21 @@ describe('it', () => {
             where: {id: 1}
         });
         assert.isNotNull(t);
-        t = <index.Team>t;
+        if(t == null){
+            assert.fail();
+            return ;
+        }
 
         assert.equal(t.name, 'Reds');
     });
 
-    
+    it('get team count', async () => {
+        const sequelize = await index.init();
+       const Team = sequelize.model<index.Team, index.TeamAttr>('team');
+
+        var teams = await Team.findAll();
+
+        assert.equal(teams.length, 4);
+    });
 });
 
