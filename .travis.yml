@@ -4,6 +4,8 @@ node_js:
 env:
   global:
     - DATABASE_URL=mysql://root@localhost/travis_test
+services:
+  - mysql
 
 install:
   - npm install -g typescript
