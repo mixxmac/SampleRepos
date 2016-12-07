@@ -11,6 +11,9 @@
             "program": "${workspaceRoot}/dist/src/boot.js",
             "cwd": "${workspaceRoot}",
             "outDir": "${workspaceRoot}/dist",
+            "env": {
+                "DATABASE_URL": "mysql://user:password@localhost/local_db"
+            },
             "sourceMaps": true
         },
         {
