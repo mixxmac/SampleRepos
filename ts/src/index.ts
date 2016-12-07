@@ -3,15 +3,10 @@ import 'source-map-support/register';
 import * as Sequelize from 'sequelize';
 
 
-process.env.DATABASE_URL = 'mysql://user:password@localhost/local_db'
-
-
 /**
  * DB接続設定
  */
 const DATABASE_URL = <string>process.env.DATABASE_URL;
-
-init();
 
 export async function init() {
 
