@@ -7,7 +7,7 @@ env:
 
 install:
   - npm install -g typescript
-  - npm instll
+  - npm install
 
 before_script:
   - mysql -uroot -e "create database travis_test"

@@ -30,7 +30,7 @@ describe('it', () => {
 
         var teams = await Team.findAll();
 
-        assert.equal(teams.length, 4);
+        assert.equal(teams.length, 5);
     });
 });
 
