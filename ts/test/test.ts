@@ -1,5 +1,5 @@
 // 環境変数の設定
-process.env.DATABASE_URL = 'mysql://user:password@localhost/local_db'
+process.env.DATABASE_URL = process.env.DATABASE_URL || 'mysql://user:password@localhost/local_db'
 
 import * as index from '../src/index';
 import * as mocha from 'mocha';
