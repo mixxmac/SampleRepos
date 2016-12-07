@@ -2,7 +2,11 @@ import 'source-map-support/register';
 
 import * as Sequelize from 'sequelize';
 
-const DB_URL = process.env.DATABASE_URL || `mysql://ubuntu@localhost/circle_test`;
+/**
+ * 
+ * circleci : `mysql://ubuntu@localhost/circle_test`
+ */
+const DB_URL = process.env.DATABASE_URL || 'mysql://ubuntu@localhost/local_db';
 
 export async function init() {
 

@@ -1,5 +1,8 @@
 version: 0.1
 
+environment_variables:
+  DATABASE_URL: mysql://root:rootPass@localhost/ci_test
+
 phases:
   install:
     commands:
