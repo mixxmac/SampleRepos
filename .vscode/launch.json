@@ -8,9 +8,9 @@
             "type": "node",
             "request": "launch",
             "name": "プログラムの起動",
-            "program": "${workspaceRoot}/index.js",
+            "program": "${workspaceRoot}/dist/src/index.js",
             "cwd": "${workspaceRoot}",
-            "outFiles": [],
+            "outDir": "${workspaceRoot}/dist",
             "sourceMaps": true
         },
         {

@@ -2,16 +2,21 @@ import 'source-map-support/register';
 
 import * as Sequelize from 'sequelize';
 
+
+process.env.DATABASE_URL = 'mysql://user:password@localhost/local_db'
+
+
 /**
- * 
- * circleci : `mysql://ubuntu@localhost/circle_test`
+ * DB接続設定
  */
-const DB_URL = process.env.DATABASE_URL || 'mysql://ubuntu@localhost/local_db';
+const DATABASE_URL = <string>process.env.DATABASE_URL;
+
+init();
 
 export async function init() {
 
     // mysql.server start
-    const sequelize = new Sequelize(DB_URL, {
+    const sequelize = new Sequelize(DATABASE_URL, {
         define: {
             freezeTableName: true,
             timestamps: false,
@@ -52,9 +57,6 @@ export async function init() {
         force: true
     });
 
-    console.log(Team);
-    console.log(User);
-
     const res = await User.create({
         id: 5,
         username: 'bob',
@@ -79,10 +81,11 @@ export async function init() {
         }
     ]);
 
-    console.log("Fin!!!");
+    console.log("Fin!");
 
     return sequelize;
 }
+
 
 export interface UserAttr {
     id?: number;
