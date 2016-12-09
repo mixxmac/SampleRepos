@@ -24,6 +24,7 @@
     "chai": "^3.5.0",
     "mocha": "^3.2.0",
     "serverless-offline": "^3.5.7",
+    "serverless-plugin-include-dependencies": "^1.0.3",
     "source-map-support": "^0.4.6",
     "typescript": "2.0.10"
   }

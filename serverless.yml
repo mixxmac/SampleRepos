@@ -7,8 +7,15 @@ provider:
   region: ap-northeast-1
   memorySize: 1536
   timeout: 30
+  environment: ${self:custom..${env.stage}}
 
-environment: ${file(env-${self:custom.stage}.yml)}
+custom:
+  dev: 
+    - DOMAIN: dev.example.coom
+  rc: 
+    - DOMAIN: rc.example.coom
+  prod: 
+    - DOMAIN: prod.example.coom
 
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
@@ -42,6 +49,7 @@ package:
     - ts/**
     - .vscode/**
     - .git/**
+    - node_modules/**
 
 functions:
   hello:
@@ -53,7 +61,7 @@ functions:
 
 plugins:
   - serverless-offline
-
+  - serverless-plugin-include-dependencies
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
