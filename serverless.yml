@@ -5,7 +5,10 @@ provider:
   runtime: nodejs4.3
   stage: dev
   region: ap-northeast-1
+  memorySize: 1536
+  timeout: 30
 
+environment: ${file(env-${self:custom.stage}.yml)}
 
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
@@ -45,10 +48,8 @@ functions:
     handler: dist/src/handler.hello
     events:
       - http:
-          path: hello
+          path: hello/{name}
           method: get
-    environment:
-      DATABASE_URL: Test-dev
 
 plugins:
   - serverless-offline

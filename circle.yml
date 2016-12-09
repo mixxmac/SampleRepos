@@ -19,4 +19,4 @@ deployment:
     branch: master
     commands:
       - npm install -g serverless
-      - sls deploy
+      - sls deploy --stage prod
