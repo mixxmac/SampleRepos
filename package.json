@@ -16,6 +16,7 @@
     "sequelize": "^3.27.0"
   },
   "devDependencies": {
+    "@types/aws-lambda": "0.0.5",
     "@types/chai": "^3.4.34",
     "@types/mocha": "^2.2.33",
     "@types/node": "0.0.0",
