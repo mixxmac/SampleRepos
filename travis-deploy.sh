@@ -1,7 +1,6 @@
 #!/bin/sh
 
-echo 'Install!'
 npm install -g serverless
+npm install
 
-echo 'Deploy!'
 sls deploy --stage prod
