@@ -19,3 +19,9 @@ before_script:
 script:
   - npm test
 
+deploy:
+  provider: script
+  script: .travis-deploy.sh
+  on:
+    branch: master
+
