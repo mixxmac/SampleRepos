@@ -3,7 +3,8 @@ node_js:
   - '4.3'
 env:
   global:
-    secure: "qurXdNHa19keVfZLkXqx5TbyeXoRhAoJigwVBnvJ6sw/yOYpIN7a/6crCTYVjI9Iv5c90crK2iC04HKsog8MQag27clAbexMVp0MS3eAOa+FY3A0nacmc/r/beMifeNfdVZyU8WIzNcb7z9RJbFIVJj8dcKm1JMEDNkHmOD4DGdxQejAlHx6lDjF1IyOtQDiy1vBHaHjBMBPv4r59GdajIdh0TG3YxYZZ70W+StmosMvDIEoxHaqszZjSsBTjD521ig3INh5gs7iWAF9WYPciWRF/b5PNthIraHOJNXQjHVMW0TjPlQQg9B88/otUczVAzdpo2xV4l0I8iIel9qziGGt/k7W41PgPK3FVVAjE73+ig1l1hhmEL50Fb9Ubz+DM2ZYEgvOQdlWHewmgdaVIDLiyjZ/ytPSH5NU89hngPYk905uWNxmOfaofjZBbiMcqCtrKZFY7BTFcfpeAWkQYPhWOPJV5THv6DW0RHu3M5CDsCt8Hnnq19IpsI0wS14orDghvw8sb/2cqKy8ZK2u0TPlGGtM3fZhksJ9Ki6IqcvDmt1h0zx8EacEWC4HLJIHtb1/+CGeQqtWqXeVsS2NI5OTznZGnlBMNKh+loPYAKjExzcYP9nL+XdoOtXSpU+8i9EUCFuTDG+K9I6wg/5T5vQG86nhmp7aFtObidpszkk="
+    - DATABASE_URL=mysql://root@localhost/travis_test
+    - secure: "qurXdNHa19keVfZLkXqx5TbyeXoRhAoJigwVBnvJ6sw/yOYpIN7a/6crCTYVjI9Iv5c90crK2iC04HKsog8MQag27clAbexMVp0MS3eAOa+FY3A0nacmc/r/beMifeNfdVZyU8WIzNcb7z9RJbFIVJj8dcKm1JMEDNkHmOD4DGdxQejAlHx6lDjF1IyOtQDiy1vBHaHjBMBPv4r59GdajIdh0TG3YxYZZ70W+StmosMvDIEoxHaqszZjSsBTjD521ig3INh5gs7iWAF9WYPciWRF/b5PNthIraHOJNXQjHVMW0TjPlQQg9B88/otUczVAzdpo2xV4l0I8iIel9qziGGt/k7W41PgPK3FVVAjE73+ig1l1hhmEL50Fb9Ubz+DM2ZYEgvOQdlWHewmgdaVIDLiyjZ/ytPSH5NU89hngPYk905uWNxmOfaofjZBbiMcqCtrKZFY7BTFcfpeAWkQYPhWOPJV5THv6DW0RHu3M5CDsCt8Hnnq19IpsI0wS14orDghvw8sb/2cqKy8ZK2u0TPlGGtM3fZhksJ9Ki6IqcvDmt1h0zx8EacEWC4HLJIHtb1/+CGeQqtWqXeVsS2NI5OTznZGnlBMNKh+loPYAKjExzcYP9nL+XdoOtXSpU+8i9EUCFuTDG+K9I6wg/5T5vQG86nhmp7aFtObidpszkk="
 
 services:
   - mysql
@@ -20,16 +21,17 @@ script:
    - echo 'Do nothing.'
 #  - npm test
 
-#after_success:
+after_success:
 #  - npm install -g serverless
 #  - npm install
-#  - echo $SLS_DEBUG
+
+  - echo "dbg= $SLS_DEBUG url= $DATABASE_URL"
 #  - sls deploy --stage prod
 
 
 deploy:
   provider: script
-  script: chmod +x ./travis-deploy.sh && echo $AWS_ACCESS_KEY_ID && echo hello.. && ./travis-deploy.sh
+  script: chmod +x ./travis-deploy.sh && ./travis-deploy.sh
   skip_cleanup: true
   on:
     branch: master
