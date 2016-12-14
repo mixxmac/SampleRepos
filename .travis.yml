@@ -23,7 +23,7 @@ script:
 
 deploy:
   provider: script
-  script: chmod +x ./travis-deploy.sh && ./travis-deploy.sh
+  script: chmod +x ./travis-deploy.sh && echo $AWS_ACCESS_KEY_ID && echo hello.. && ./travis-deploy.sh
   skip_cleanup: true
   on:
     branch: master
