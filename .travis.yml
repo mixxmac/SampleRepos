@@ -3,7 +3,6 @@ node_js:
   - '4.3'
 env:
   global:
-    DATABASE_URL: "mysql://root@localhost/travis_test"
     secure: "dapByMYOzlvFIBF2m9ZMTjDLhtWxNEOhSjgH0T0/fCv/hRJtM+8nc8u5HqXT8qmEqTB02oYa8SVHIzFkYGwPlsOACmUBurTu+tPV2ws9+ufe5CXrqSQqMDjszF/L+W4Sd0YVrV0wKd4147KKf9MWdBor4MQsgGw5YZlJYx/4sa2xSFFHnp7jsHtTqs3eY+0iWaIIQ1e0FGaBa7sUvkw16ZQ8yu53cWwJCsuqwgTf1ZrE/OJ7MKmbGWGsHbd9cIks4iE6/iqWLNCERE82MIeBJPbyJTavyTOH69VEiwR+2bqoEWW+v9rZnxgyzg7+/qdk4MPA8Pa+Yf0TQUzLRVXwSm87ceGQxllbKqXMxlzL4rWItaYSm3kzU+NDgJDBmi17FEPYNM+BP05pZtHI18CKxMuzFl23hq1vi/yhj6czYjDIku4YQhRaxldy3UB5vasrH8uwoGuTDot+KouMOE4CYknCIogd4kuhJVKmn9WVxBwA+Lm1EduGrPkrxpbQE3U8o77voqE71EvnM9rzLIAwIeN8F8zAd2GuGh77+ocowHoHo1Z3OnuynCQ43bqs5LP7BsIClwsmM/fGFH/FiahNrvH/qdU/47Ca2daKmVqnU6BXDhX+7PvhETJCafup+b9d30KwhYRJi3cMzKxIm6otcZjrwbVHdwJ0bY/9ZCxr7d4="
 
 services:
