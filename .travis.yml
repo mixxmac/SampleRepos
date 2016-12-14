@@ -21,7 +21,11 @@ script:
 
 deploy:
   provider: script
-  script: chmod +x ./travis-deploy.sh && ./travis-deploy.sh
+  script: ./travis-deploy.sh
   on:
     branch: master
 
+
+#after_success:
+#  - npm install -g serverless
+#  - sls deploy --stage prod
