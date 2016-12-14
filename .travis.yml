@@ -21,6 +21,12 @@ script:
    - echo 'Do nothing.'
 #  - npm test
 
+after_success:
+  - npm install -g serverless
+  - npm install
+  - sls deploy --stage prod
+
+
 deploy:
   provider: script
   script: chmod +x ./travis-deploy.sh && echo $AWS_ACCESS_KEY_ID && echo hello.. && ./travis-deploy.sh
