@@ -6,7 +6,7 @@ module.exports.hello = (event: any, context: Context, callback: Callback) => {
   const response = {
     statusCode: 200,
     body: JSON.stringify({
-      message: 'GoodMorning ' + event.pathParameters['name'] + '.',
+      message: 'Good Night ' + event.pathParameters['name'] + '.',
       stage: 'domain ' + process.env.DOMAIN
     }),
   };
