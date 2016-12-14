@@ -3,7 +3,7 @@ node_js:
   - '4.3'
 env:
   global:
-    secure: "dapByMYOzlvFIBF2m9ZMTjDLhtWxNEOhSjgH0T0/fCv/hRJtM+8nc8u5HqXT8qmEqTB02oYa8SVHIzFkYGwPlsOACmUBurTu+tPV2ws9+ufe5CXrqSQqMDjszF/L+W4Sd0YVrV0wKd4147KKf9MWdBor4MQsgGw5YZlJYx/4sa2xSFFHnp7jsHtTqs3eY+0iWaIIQ1e0FGaBa7sUvkw16ZQ8yu53cWwJCsuqwgTf1ZrE/OJ7MKmbGWGsHbd9cIks4iE6/iqWLNCERE82MIeBJPbyJTavyTOH69VEiwR+2bqoEWW+v9rZnxgyzg7+/qdk4MPA8Pa+Yf0TQUzLRVXwSm87ceGQxllbKqXMxlzL4rWItaYSm3kzU+NDgJDBmi17FEPYNM+BP05pZtHI18CKxMuzFl23hq1vi/yhj6czYjDIku4YQhRaxldy3UB5vasrH8uwoGuTDot+KouMOE4CYknCIogd4kuhJVKmn9WVxBwA+Lm1EduGrPkrxpbQE3U8o77voqE71EvnM9rzLIAwIeN8F8zAd2GuGh77+ocowHoHo1Z3OnuynCQ43bqs5LP7BsIClwsmM/fGFH/FiahNrvH/qdU/47Ca2daKmVqnU6BXDhX+7PvhETJCafup+b9d30KwhYRJi3cMzKxIm6otcZjrwbVHdwJ0bY/9ZCxr7d4="
+    secure: "KdQLRLYm7mKnbrWTuJ3kQAo217OLo7b5bfV9hB3daMRLhX9RpZrTEL6WQG4GotrodJgrHGXuH2PiMg7iypKoIkUkg6w8OvdMx5dFSgIbCnfjoeHwkbdXpb0ihZLeqXZpivfz1sT/3J7zvuAE9zqIllGJSjChYZjj4myIhamm10gp2EM+OZLH47EnP5RiZ1flDZgvRIEkIQc3MexZ5JxL90NqqfvvbZqSXGtt2Pw2//EdlppiDYc1s8zhabcRHBI3VyHJwqrGVSgAFCrvsV1C56L+TpiJtLXxsunTrF1iEDr9Cx5E9gmUbJiAQNnR0Dhtkhu3GlR5Bw1nVJrB/iRcjjzFD51y5Lypssu07Ew69oZY6ZPlhYw6Q+LX8A73+Lhh1Iygn+n3p8R3unQ1Qa7tf/sn7bL3fv6WBXRJjWeVjtEEp3oNNU3HECAdABp8ibqKobl6jL3O/m77Xy2xVHIb9wU7jJ0tCjcjVW2a9GAYwbz8g9MbLrkaTxUSwhqT0DGVOwEkU/qPIVJ5GImELc4ePdzsFSK1OJA2Vbn/enBY0ka1eZ0pfzVmIOADFbMu8IoI30Jyo/5rpKj2bESqDTgW/1emu24ODuUQWlR+gY77kJj2hjxCjfeGLLWssKuwJt9m9FqiXZeUXyypBr7gBf38bbUN7quTPXL1CViCKZfJ4nY="
 
 services:
   - mysql
@@ -23,6 +23,7 @@ script:
 after_success:
   - npm install -g serverless
   - npm install
+  - echo $SLS_DEBUG
   - sls deploy --stage prod
 
 
